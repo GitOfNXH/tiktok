@@ -2,7 +2,7 @@ import Home from '~/Pages/Home'
 import Following from '~/Pages/Following'
 import Profile from '~/Pages/Profile'
 import Upload from '~/Pages/Upload'
-import HeaderOnly from '~/Layout/HeaderOnly'
+import HeaderOnly from '~/Components/Layouts/HeaderOnly'
 import Search from '~/Pages/Search'
 
 // public routes
