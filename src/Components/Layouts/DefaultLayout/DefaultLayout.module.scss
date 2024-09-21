@@ -1,14 +1,12 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
 }
 
 .container {
     display: flex;
-    background-color: #ddd;
-    width: var(--default-layout-width);
-    min-height: 1000px;
+    width: 100%;
 }
 
 .content {
