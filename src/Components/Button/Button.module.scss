@@ -1,0 +1,89 @@
+// General
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    user-select: none;
+    padding: 6px 8px;
+
+    & + & {
+        margin-left: 8px;
+    }
+}
+
+// Types
+.primary {
+    background-color: var(--primary);
+    color: var(--white);
+    font-weight: 700;
+
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), rgb(254, 44, 85);
+    }
+}
+
+.popular {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.48);
+
+    &.active {
+        color: var(--black);
+        background-color: var(--white);
+        font-weight: 600;
+    }
+}
+
+.outline {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.upload {
+}
+
+// Sizes
+.small {
+    height: 32px;
+    padding: 6px 10px;
+}
+
+.medium {
+    height: 36px;
+    width: 100px;
+}
+
+.large {
+    height: 48px;
+}
+
+.long {
+    width: 208px;
+}
+
+.message {
+    width: 164px;
+}
+
+// icon & button
+.icon + .title,
+.title + .icon {
+    margin-left: 8px;
+}
+
+// disabled buttons
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}

@@ -23,6 +23,10 @@
     height: var(--logo-height);
 }
 
+.search-wrap {
+    padding: 0 8px;
+}
+
 .search {
     height: var(--search-high);
     background-color: rgba(22, 24, 35, 0.06);
@@ -134,4 +138,13 @@
 }
 
 .action {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 160px;
+    height: 36px;
+
+    .option {
+        font-size: 20px;
+    }
 }
