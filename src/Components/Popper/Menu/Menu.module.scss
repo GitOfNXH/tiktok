@@ -1,0 +1,24 @@
+.menu {
+    width: 224px;
+}
+
+.menu-wrapper {
+    padding-bottom: 8px;
+}
+
+.menu-list {
+    button,
+    a {
+        background-color: var(--white);
+        margin-left: 0 !important;
+        width: 100%;
+        border-radius: 0;
+        justify-content: left;
+        height: 41px;
+    }
+}
+
+a:hover,
+button:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+}

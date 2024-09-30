@@ -1,0 +1,31 @@
+.search-item {
+    width: 100%;
+    padding: 9px 16px;
+    cursor: pointer;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.search-item:hover {
+    background-color: #f6f4f4;
+}
+
+.search-icon {
+    font-size: 13px;
+    margin-right: 8px;
+}
+
+.search-title {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.search-option {
+    width: 13px;
+    cursor: pointer;
+    display: block;
+    font-weight: 400;
+}

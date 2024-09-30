@@ -1,12 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faCircleXmark,
-    faEllipsis,
     faEllipsisVertical,
+    faGlobe,
+    faHouseUser,
     faMagnifyingGlass,
-    faSearch,
+    faMoon,
     faSpinner
 } from '@fortawesome/free-solid-svg-icons'
+import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons'
 import Tippy from '@tippyjs/react/headless'
 import 'tippy.js/dist/tippy.css'
 import classNames from 'classnames/bind'
@@ -16,6 +18,8 @@ import Button from '~/Components/Button'
 import style from './Header.module.scss'
 import image from '~/assets/images'
 import PopperWrapper from '~/Components/Popper'
+import SearchItem from '~/Components/SearchItem'
+import Menu from '~/Components/Popper/Menu'
 
 const cx = classNames.bind(style)
 
@@ -27,6 +31,26 @@ function Header() {
             setSearchResult([])
         }, 0)
     }, [])
+
+    const menuDatas = [
+        {
+            icon: <FontAwesomeIcon icon={faHouseUser} />,
+            title: 'Creator tools'
+        },
+        {
+            icon: <FontAwesomeIcon icon={faGlobe} />,
+            title: 'English'
+        },
+        {
+            icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+            title: 'Feedback and help',
+            to: '/feedback'
+        },
+        {
+            icon: <FontAwesomeIcon icon={faMoon} />,
+            title: 'Dark'
+        }
+    ]
 
     return (
         <header className={cx('wrapper')}>
@@ -42,21 +66,10 @@ function Header() {
                             <div className={cx('search-result')} tabIndex='-1' {...attrs}>
                                 <PopperWrapper>
                                     <ul className={cx('search-list')}>
-                                        <li className={cx('search-item')}>
-                                            <FontAwesomeIcon className={cx('search-icon')} icon={faSearch} />
-                                            <span className={cx('search-title')}>Hoạt hình cho em bé</span>
-                                            <FontAwesomeIcon className={cx('search-option')} icon={faEllipsis} />
-                                        </li>
-                                        <li className={cx('search-item')}>
-                                            <FontAwesomeIcon className={cx('search-icon')} icon={faSearch} />
-                                            <span className={cx('search-title')}>Hoàng sao special</span>
-                                            <FontAwesomeIcon className={cx('search-option')} icon={faEllipsis} />
-                                        </li>
-                                        <li className={cx('search-item')}>
-                                            <FontAwesomeIcon className={cx('search-icon')} icon={faSearch} />
-                                            <span className={cx('search-title')}>Honor x9b</span>
-                                            <FontAwesomeIcon className={cx('search-option')} icon={faEllipsis} />
-                                        </li>
+                                        <SearchItem title='Hoạt hình cho em bé' />
+                                        <SearchItem title='Hoa anh đào đà lạt' />
+                                        <SearchItem title='Hoa bỉ ngạn' />
+                                        <SearchItem title='Hoa thiên cốt' />
                                     </ul>
                                 </PopperWrapper>
                             </div>
@@ -80,7 +93,12 @@ function Header() {
                     <Button primary medium>
                         Log in
                     </Button>
-                    <FontAwesomeIcon className={cx('option')} icon={faEllipsisVertical} />
+
+                    <Menu menuDatas={menuDatas}>
+                        <button className={cx('option')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
