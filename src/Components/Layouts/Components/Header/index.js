@@ -1,13 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
+    faCheck,
     faCircleXmark,
     faEllipsisVertical,
     faGlobe,
     faHouseUser,
     faMagnifyingGlass,
-    faMoon,
     faSpinner
 } from '@fortawesome/free-solid-svg-icons'
+import { faLightbulb, faMoon } from '@fortawesome/free-regular-svg-icons'
 import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons'
 import Tippy from '@tippyjs/react/headless'
 import 'tippy.js/dist/tippy.css'
@@ -35,11 +36,35 @@ function Header() {
     const menuDatas = [
         {
             icon: <FontAwesomeIcon icon={faHouseUser} />,
-            title: 'Creator tools'
+            title: 'Creator tools',
+            children: {
+                title: 'Creator tools',
+                data: [
+                    {
+                        title: 'LIVE Creator Hub',
+                        icon: <FontAwesomeIcon icon={faLightbulb} />
+                    }
+                ]
+            }
         },
         {
             icon: <FontAwesomeIcon icon={faGlobe} />,
-            title: 'English'
+            title: 'English',
+            children: {
+                title: 'language',
+                data: [
+                    {
+                        type: 'language',
+                        code: 'en',
+                        title: 'English'
+                    },
+                    {
+                        type: 'language',
+                        code: 'vi',
+                        title: 'Tiếng Việt'
+                    }
+                ]
+            }
         },
         {
             icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -48,9 +73,33 @@ function Header() {
         },
         {
             icon: <FontAwesomeIcon icon={faMoon} />,
-            title: 'Dark'
+            title: 'Dark mode',
+            children: {
+                title: 'Dark mode',
+                data: [
+                    {
+                        icon: <FontAwesomeIcon icon={faCheck} />,
+                        title: 'Use device theme'
+                    },
+                    {
+                        title: 'Dark mode'
+                    },
+                    {
+                        title: 'Light mode'
+                    }
+                ]
+            }
         }
     ]
+
+    const handleChangeMenu = (item) => {
+        switch (item.type) {
+            case 'language':
+                console.log(item.title)
+                break
+            default:
+        }
+    }
 
     return (
         <header className={cx('wrapper')}>
@@ -94,7 +143,7 @@ function Header() {
                         Log in
                     </Button>
 
-                    <Menu menuDatas={menuDatas}>
+                    <Menu menuDatas={menuDatas} onChange={handleChangeMenu}>
                         <button className={cx('option')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>

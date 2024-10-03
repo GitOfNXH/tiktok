@@ -20,11 +20,12 @@ function Button({
     leftIcon,
     rightIcon,
     disabled,
+    className,
     onClick,
     ...passProps
 }) {
     let Comp = 'button'
-    const classes = cx('wrapper', {
+    const classes = cx('wrapper', className, {
         primary,
         small,
         medium,
